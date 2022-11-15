@@ -36,74 +36,9 @@ function createManager() {
                 message: 'Please enter the team managers\' office number.',
                 name: 'office'
             }
-        ])
-        .then((data) => {
+        ]).then((data) => {
             const manager = new Manager(data.manager, data.email, data.id, data.office);
             team.push(manager);
-            addTeamMember();
-        })
-}
-
-//  creates engineer object
-function createEngineer() {
-    inquirer
-        .prompt([
-            {
-                type: 'input',
-                message: 'What is the name of the engineer?',
-                name: 'engineer'
-            },
-            {
-                type: 'input',
-                message: 'Please enter the engineers\' employee ID.',
-                name: 'id'
-            },
-            {
-                type: 'input',
-                message: 'Please enter the engineers\' e-mail address.',
-                name: 'email'
-            },
-            {
-                type: 'input',
-                message: 'Please enter the engineers\' github username.',
-                name: 'github'
-            }
-        ])
-        .then((data) => {
-            const engineer = new Engineer(data.engineer, data.email, data.id, data.github);
-            team.push(engineer);
-            addTeamMember();
-        })
-}
-
-//  creates intern object
-function createIntern() {
-    inquirer
-        .prompt([
-            {
-                type: 'input',
-                message: 'What is the name of the intern?',
-                name: 'intern'
-            },
-            {
-                type: 'input',
-                message: 'Please enter the interns\' employee ID.',
-                name: 'id'
-            },
-            {
-                type: 'input',
-                message: 'Please enter the interns\' e-mail address.',
-                name: 'email'
-            },
-            {
-                type: 'input',
-                message: 'Please enter the name of the school the intern attends.',
-                name: 'school'
-            }
-        ])
-        .then((data) => {
-            const intern = new Intern(data.intern, data.email, data.id, data.school);
-            team.push(intern);
             addTeamMember();
         })
 }
@@ -118,17 +53,77 @@ function addTeamMember() {
                 choices: ['Engineer', 'Intern', 'All team members added'],
                 name: 'choice'
             }
-        ])
-        .then((input) => {
+        ]).then((input) => {
             const { choice } = input;
-            console.log(choice);
-            if (choice === 'Engineer') {
-                createEngineer();
-            } else if (choice === 'Intern') {
-                createIntern();
-            } else if (choice === 'All team members added') {
-                console.log('current team: \n');
-                console.log(team);
+            //  run code depending on user choice(three choices: engineer, intern, all members added)
+            switch (choice) {
+                //  creates engineer class object
+                case 'Engineer':
+                    inquirer
+                        .prompt([
+                            {
+                                type: 'input',
+                                message: 'What is the name of the engineer?',
+                                name: 'engineer'
+                            },
+                            {
+                                type: 'input',
+                                message: 'Please enter the engineers\' employee ID.',
+                                name: 'id'
+                            },
+                            {
+                                type: 'input',
+                                message: 'Please enter the engineers\' e-mail address.',
+                                name: 'email'
+                            },
+                            {
+                                type: 'input',
+                                message: 'Please enter the engineers\' github username.',
+                                name: 'github'
+                            }
+                        ])
+                        .then((data) => {
+                            const engineer = new Engineer(data.engineer, data.email, data.id, data.github);
+                            team.push(engineer);
+                            addTeamMember();
+                        })
+                break;
+                //  creates intern class object
+                case 'Intern':
+                    inquirer
+                        .prompt([
+                            {
+                                type: 'input',
+                                message: 'What is the name of the intern?',
+                                name: 'intern'
+                            },
+                            {
+                                type: 'input',
+                                message: 'Please enter the interns\' employee ID.',
+                                name: 'id'
+                            },
+                            {
+                                type: 'input',
+                                message: 'Please enter the interns\' e-mail address.',
+                                name: 'email'
+                            },
+                            {
+                                type: 'input',
+                                message: 'Please enter the name of the school the intern attends.',
+                                name: 'school'
+                            }
+                        ]).then((data) => {
+                            const intern = new Intern(data.intern, data.email, data.id, data.school);
+                            team.push(intern);
+                            addTeamMember();
+                        })
+                break;
+                //  generate html when all team members are added
+                case 'All team members added':
+                        console.log(choice);
+                        console.log('your current team is: \n');
+                        console.log(team);
+                break;
             }
         })
 }
