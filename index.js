@@ -1,15 +1,13 @@
-// require packages
 const inquirer = require('inquirer');
-const Employee = require('./lib/Employee');
 // const { writeFile } = require('fs');
-// const generateHTML = require('./src/generateHTML');
+const html = require('./src/generateHTML');
 
 //  require team classes
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
-//  create variable to store an array of objects of team members
+//  variable to store an array of objects of team members
 const team = [];
 
 //  creates manager object
@@ -18,32 +16,33 @@ function createManager() {
         .prompt([
             {
                 type: 'input',
-                message: 'Please provide the name of the team manager?',
+                message: 'Enter the name of the team manager',
                 name: 'manager'
             },
             {
                 type: 'input',
-                message: 'Please enter the team managers\' employee ID.',
+                message: 'Enter the team managers\' employee ID.',
                 name: 'id'
             },
             {
                 type: 'input',
-                message: 'Please enter the team managers\' e-mail address.',
+                message: 'Enter the team managers\' e-mail address.',
                 name: 'email'
             },
             {
                 type: 'input',
-                message: 'Please enter the team managers\' office number.',
+                message: 'Enter the team managers\' office number.',
                 name: 'office'
             }
         ]).then((data) => {
             const manager = new Manager(data.manager, data.email, data.id, data.office);
             team.push(manager);
+            console.log(`\n${manager.getRole()}: ${data.manager} has been added to the team.\n`);
             addTeamMember();
         })
 }
 
-//  call function after creating class object(manager, engineer, intern)
+//  call function after creating each team member(manager, engineer, intern)
 function addTeamMember() {
     inquirer
         .prompt([
@@ -55,7 +54,7 @@ function addTeamMember() {
             }
         ]).then((input) => {
             const { choice } = input;
-            //  run code depending on user choice(three choices: engineer, intern, all members added)
+            //  switch statement added to filter choices(three choices: engineer, intern, all members added)
             switch (choice) {
                 //  creates engineer class object
                 case 'Engineer':
@@ -68,23 +67,24 @@ function addTeamMember() {
                             },
                             {
                                 type: 'input',
-                                message: 'Please enter the engineers\' employee ID.',
+                                message: 'Enter the engineers\' employee ID.',
                                 name: 'id'
                             },
                             {
                                 type: 'input',
-                                message: 'Please enter the engineers\' e-mail address.',
+                                message: 'Enter the engineers\' e-mail address.',
                                 name: 'email'
                             },
                             {
                                 type: 'input',
-                                message: 'Please enter the engineers\' github username.',
+                                message: 'Enter the engineers\' github username.',
                                 name: 'github'
                             }
                         ])
                         .then((data) => {
                             const engineer = new Engineer(data.engineer, data.email, data.id, data.github);
                             team.push(engineer);
+                            console.log(`\n${engineer.getRole()}: ${data.engineer} has been added to the team.\n`);
                             addTeamMember();
                         })
                 break;
@@ -99,22 +99,23 @@ function addTeamMember() {
                             },
                             {
                                 type: 'input',
-                                message: 'Please enter the interns\' employee ID.',
+                                message: 'Enter the interns\' employee ID.',
                                 name: 'id'
                             },
                             {
                                 type: 'input',
-                                message: 'Please enter the interns\' e-mail address.',
+                                message: 'Enter the interns\' e-mail address.',
                                 name: 'email'
                             },
                             {
                                 type: 'input',
-                                message: 'Please enter the name of the school the intern attends.',
+                                message: 'Enter the name of the school the intern attends.',
                                 name: 'school'
                             }
                         ]).then((data) => {
                             const intern = new Intern(data.intern, data.email, data.id, data.school);
                             team.push(intern);
+                            console.log(`\n${intern.getRole()}: ${data.intern} has been added to the team.\n`);
                             addTeamMember();
                         })
                 break;
@@ -122,7 +123,7 @@ function addTeamMember() {
                 case 'All team members added':
                         console.log(choice);
                         console.log('your current team is: \n');
-                        console.log(team);
+                        console.log(html(team));
                 break;
             }
         })
