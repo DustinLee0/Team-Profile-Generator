@@ -12,6 +12,7 @@ const Intern = require('./lib/Intern');
 //  create variable to store an array of objects of team members
 const team = [];
 
+//  creates manager object
 function createManager() {
     inquirer
         .prompt([
@@ -39,9 +40,11 @@ function createManager() {
         .then((data) => {
             const manager = new Manager(data.manager, data.email, data.id, data.office);
             team.push(manager);
+            addTeamMember();
         })
 }
 
+//  creates engineer object
 function createEngineer() {
     inquirer
         .prompt([
@@ -66,13 +69,14 @@ function createEngineer() {
                 name: 'github'
             }
         ])
-        .then( (data) => {
+        .then((data) => {
             const engineer = new Engineer(data.engineer, data.email, data.id, data.github);
             team.push(engineer);
+            addTeamMember();
         })
 }
 
-
+//  creates intern object
 function createIntern() {
     inquirer
         .prompt([
@@ -100,12 +104,37 @@ function createIntern() {
         .then((data) => {
             const intern = new Intern(data.intern, data.email, data.id, data.school);
             team.push(intern);
+            addTeamMember();
         })
 }
 
-function initialize() {
-
+//  call function after creating class object(manager, engineer, intern)
+function addTeamMember() {
+    inquirer
+        .prompt([
+            {
+                type: 'list',
+                message: 'Would you like to add more team members?',
+                choices: ['Engineer', 'Intern', 'All team members added'],
+                name: 'choice'
+            }
+        ])
+        .then((input) => {
+            const { choice } = input;
+            console.log(choice);
+            if (choice === 'Engineer') {
+                createEngineer();
+            } else if (choice === 'Intern') {
+                createIntern();
+            } else if (choice === 'All team members added') {
+                console.log('current team: \n');
+                console.log(team);
+            }
+        })
 }
+
+//  prompt manager info when app is invoked
+createManager();
 
 function writeToFile(fileName, data) {
     // const readMe = markdown(data);
@@ -115,3 +144,5 @@ function writeToFile(fileName, data) {
     //     console.log(`Data written to ${fileName}`);
     // });
 }
+
+module.exports = team;
