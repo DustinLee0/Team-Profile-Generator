@@ -13,9 +13,9 @@ function teamCards(team) {
                   <h5>${obj.getRole()}</h5>
                 </div>
                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Id: ${obj.getId()}</li>
-                    <li class="list-group-item">Email: <a href='mailto: ${obj.getEmail()}'>${obj.getEmail()}</a></li>
-                    <li class="list-group-item">Office #: ${obj.officeNum}</li>
+                    <li class="list-group-item">Id:  ${obj.getId()}</li>
+                    <li class="list-group-item">Email:  <a href='mailto: ${obj.getEmail()}'>${obj.getEmail()}</a></li>
+                    <li class="list-group-item">Office #:  ${obj.officeNum}</li>
                   </ul>
                 </div>\n`
             case 'Engineer':
@@ -26,9 +26,9 @@ function teamCards(team) {
                   <h5>${obj.getRole()}</h5>
                 </div>
                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Id: ${obj.getId()}</li>
-                    <li class="list-group-item">Email: <a href='mailto: ${obj.getEmail()}'>${obj.getEmail()}</a></li>
-                    <li class="list-group-item">Github Repository: <a href='https://github.com/${obj.github}' target="_blank">${obj.github}</a></li>
+                    <li class="list-group-item">Id:  ${obj.getId()}</li>
+                    <li class="list-group-item">Email:  <a href='mailto: ${obj.getEmail()}'>${obj.getEmail()}</a></li>
+                    <li class="list-group-item">Github Repository:  <a href='https://github.com/${obj.getGithub()}' target="_blank">${obj.github}</a></li>
                   </ul>
                 </div>\n`
             case 'Intern':
@@ -39,9 +39,9 @@ function teamCards(team) {
                   <h5>${obj.getRole()}</h5>
                 </div>
                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Id: ${obj.getId()}</li>
-                    <li class="list-group-item">Email: <a href='mailto: ${obj.getEmail()}'>${obj.getEmail()}</a></li>
-                    <li class="list-group-item">School: ${obj.school}</li>
+                    <li class="list-group-item">Id:  ${obj.getId()}</li>
+                    <li class="list-group-item">Email:  <a href='mailto: ${obj.getEmail()}'>${obj.getEmail()}</a></li>
+                    <li class="list-group-item">School:  ${obj.getSchool()}</li>
                   </ul>
                 </div>\n`
         }
@@ -65,7 +65,7 @@ function generateHTML(team) {
     </head>
     <body>
         <h1 class="display-5 text-center header-bg">My Team Profile</h1>
-        <section class="d-flex justify-content-center" id="team-card">\n
+        <section class="d-flex flex-wrap justify-content-center" id="team-card">\n
         ${cards}
         </section>
     </body>
