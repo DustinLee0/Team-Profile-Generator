@@ -1,32 +1,31 @@
 # Team Profile Generator
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+The command-line application([Node.js](https://nodejs.org/dist/latest-v18.x/docs/api/)) allows users to generate a webpage displaying team members and information about their name, id, emails, github, school and/or office number depending on what role they occupy. The team members will be input by the user. There are three roles on the team: a manager, engineers, and interns. The app will generate a profile card with information about each team member and displays on the webpage. 
 
 ## Installation
+Dependencies needed for the application: [Jest](https://www.npmjs.com/package/jest) for developer testing and the [Inquirer](https://www.npmjs.com/package/inquirer/v/8.2.4) package to collect user input.   
 
+To install the dependencies, run:  
+```
+npm i
+```
+
+## Testing 
+To run [Jest](https://www.npmjs.com/package/jest) tests, run:
+```
+npm test
+```
 
 ## Usage
+To invoke the app navigate to the corresponding directory then run:
+```
+node index
+```
+User will be prompted for information about the team manager then have the choice to add engineers and interns. Once all team members are added, a html webpage will be generated located in the dist folder. 
 
-## User Story
-AS A manager
-I WANT to generate a webpage that displays my team's basic info
-SO THAT I have quick access to their emails and GitHub profiles
+## License
+This application is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
-
-## Acceptance Criteria
-GIVEN a command-line application that accepts user input
-WHEN I am prompted for my team members and their information
-THEN an HTML file is generated that displays a nicely formatted team roster based on user input
-WHEN I click on an email address in the HTML
-THEN my default email program opens and populates the TO field of the email with the address
-WHEN I click on the GitHub username
-THEN that GitHub profile opens in a new tab
-WHEN I start the application
-THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
-WHEN I enter the team manager’s name, employee ID, email address, and office number
-THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team
-WHEN I select the engineer option
-THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
-WHEN I select the intern option
-THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
-WHEN I decide to finish building my team
-THEN I exit the application, and the HTML is generated
+### Notes
+New to using [Jest](https://www.npmjs.com/package/jest).
