@@ -122,8 +122,8 @@ function addTeamMember() {
                 //  generate html when all team members are added
                 case 'All team members added':
                         console.log(choice);
-                        console.log('your current team is: \n');
-                        console.log(html(team));
+                        const data = html(team);
+
                 break;
             }
         })
@@ -132,9 +132,9 @@ function addTeamMember() {
 //  prompt manager info when app is invoked
 createManager();
 
-function writeToFile(fileName, data) {
+function writeToFile(data) {
     // const readMe = markdown(data);
-    // writeFile(fileName, readMe, (err) => {
+    // writeFile('', readMe, (err) => {
     //     if (err) throw err;
     //     console.log('A readme file was generated!');
     //     console.log(`Data written to ${fileName}`);
