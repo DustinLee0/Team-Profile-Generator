@@ -122,8 +122,12 @@ function addTeamMember() {
                 //  generate html when all team members are added
                 case 'All team members added':
                         console.log(choice);
-                        writeToFile(team);
-                        // const data = html(team);
+                        const htmlCode = html(team);
+                        writeFile('./dist/myTeamProfile.html', htmlCode, (err) => {
+                            if (err) throw err;
+                            console.log('A webpage was generated for your team.');
+                            console.log('The .html file will be located in the dist folder.');
+                        })
                 break;
             }
         })
@@ -131,12 +135,3 @@ function addTeamMember() {
 
 //  prompt manager info when app is invoked
 createManager();
-
-function writeToFile(data) {
-    const htmlCode = html(data);
-    writeFile('./dist/myTeamProfile.html', htmlCode, (err) => {
-        if (err) throw err;
-        console.log('A webpage was generated for your team.');
-        console.log('The .html file will be located in the dist folder.');
-    })
-}
