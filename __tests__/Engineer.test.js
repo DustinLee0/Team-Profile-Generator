@@ -1,7 +1,7 @@
 const Engineer = require('../lib/Engineer');
 
 describe('Engineer', () => {
-    it("should have four properties(name, email, id, officeNum)", () => {
+    it("should have four properties(name, email, id, github)", () => {
         const engineer = new Engineer();
         expect('name' in engineer).toBe(true);
         expect('email' in engineer).toBe(true);

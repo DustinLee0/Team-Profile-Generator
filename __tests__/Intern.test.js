@@ -1,7 +1,7 @@
 const Intern = require('../lib/Intern');
 
 describe('Intern', () => {
-    it("should have four properties(name, email, id, officeNum)", () => {
+    it("should have four properties(name, email, id, school)", () => {
         const intern = new Intern();
         expect('name' in intern).toBe(true);
         expect('email' in intern).toBe(true);

@@ -14,7 +14,7 @@ describe('Employee', () => {
         expect(email).toEqual('fred@live.com');
         expect(id).toEqual('13');
     });
-    it("should return and object properties when calling methods(name, id, email, role)", () => {
+    it("should return object properties when calling methods(name, id, email, role)", () => {
         const employee = new Employee();
         expect(employee.getName()).toBe(employee.name);
         expect(employee.getEmail()).toBe(employee.email);
