@@ -28,7 +28,7 @@ function teamCards(team) {
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">Id: ${obj.getId()}</li>
                     <li class="list-group-item">Email: <a href='mailto: ${obj.getEmail()}'>${obj.getEmail()}</a></li>
-                    <li class="list-group-item">Github Repository: <a href='https://github.com/${obj.github}'>${obj.github}</a></li>
+                    <li class="list-group-item">Github Repository: <a href='https://github.com/${obj.github}' target="_blank">${obj.github}</a></li>
                   </ul>
                 </div>\n`
             case 'Intern':
