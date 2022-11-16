@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-// const { writeFile } = require('fs');
+const { writeFile } = require('fs');
 const html = require('./src/generateHTML');
 
 //  require team classes
@@ -122,8 +122,8 @@ function addTeamMember() {
                 //  generate html when all team members are added
                 case 'All team members added':
                         console.log(choice);
-                        const data = html(team);
-
+                        writeToFile(team);
+                        // const data = html(team);
                 break;
             }
         })
@@ -133,12 +133,10 @@ function addTeamMember() {
 createManager();
 
 function writeToFile(data) {
-    // const readMe = markdown(data);
-    // writeFile('', readMe, (err) => {
-    //     if (err) throw err;
-    //     console.log('A readme file was generated!');
-    //     console.log(`Data written to ${fileName}`);
-    // });
+    const htmlCode = html(data);
+    writeFile('./dist/myTeamProfile.html', htmlCode, (err) => {
+        if (err) throw err;
+        console.log('A webpage was generated for your team.');
+        console.log('The .html file will be located in the dist folder.');
+    })
 }
-
-module.exports = team;
