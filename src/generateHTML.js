@@ -14,7 +14,7 @@ function teamCards(team) {
                 </div>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">Id: ${obj.getId()}</li>
-                    <li class="list-group-item">Email: ${obj.getEmail()}</li>
+                    <li class="list-group-item">Email: <a href='${obj.getEmail()}'>${obj.getEmail()}</a></li>
                     <li class="list-group-item">Office #: ${obj.officeNum}</li>
                   </ul>
                 </div>\n`
@@ -27,7 +27,7 @@ function teamCards(team) {
                 </div>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">Id: ${obj.getId()}</li>
-                    <li class="list-group-item">Email: ${obj.getEmail()}</li>
+                    <li class="list-group-item">Email: <a href='${obj.getEmail()}'>${obj.getEmail()}</a></li>
                     <li class="list-group-item">Github Repository: ${obj.github}</li>
                   </ul>
                 </div>\n`
@@ -40,7 +40,7 @@ function teamCards(team) {
                 </div>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">Id: ${obj.getId()}</li>
-                    <li class="list-group-item">Email: ${obj.getEmail()}</li>
+                    <li class="list-group-item">Email: <a href='${obj.getEmail()}'>${obj.getEmail()}</a></li>
                     <li class="list-group-item">School: ${obj.school}</li>
                   </ul>
                 </div>\n`
