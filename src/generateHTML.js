@@ -14,7 +14,7 @@ function teamCards(team) {
                 </div>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">Id: ${obj.getId()}</li>
-                    <li class="list-group-item">Email: <a href='${obj.getEmail()}'>${obj.getEmail()}</a></li>
+                    <li class="list-group-item">Email: <a href='mailto: ${obj.getEmail()}'>${obj.getEmail()}</a></li>
                     <li class="list-group-item">Office #: ${obj.officeNum}</li>
                   </ul>
                 </div>\n`
@@ -27,8 +27,8 @@ function teamCards(team) {
                 </div>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">Id: ${obj.getId()}</li>
-                    <li class="list-group-item">Email: <a href='${obj.getEmail()}'>${obj.getEmail()}</a></li>
-                    <li class="list-group-item">Github Repository: ${obj.github}</li>
+                    <li class="list-group-item">Email: <a href='mailto: ${obj.getEmail()}'>${obj.getEmail()}</a></li>
+                    <li class="list-group-item">Github Repository: <a href='https://github.com/${obj.github}'>${obj.github}</a></li>
                   </ul>
                 </div>\n`
             case 'Intern':
@@ -40,7 +40,7 @@ function teamCards(team) {
                 </div>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">Id: ${obj.getId()}</li>
-                    <li class="list-group-item">Email: <a href='${obj.getEmail()}'>${obj.getEmail()}</a></li>
+                    <li class="list-group-item">Email: <a href='mailto: ${obj.getEmail()}'>${obj.getEmail()}</a></li>
                     <li class="list-group-item">School: ${obj.school}</li>
                   </ul>
                 </div>\n`
@@ -49,7 +49,6 @@ function teamCards(team) {
     return cards.join('');
 }
 
-//  generates html code when called
 function generateHTML(team) {
     const cards = teamCards(team)
 
