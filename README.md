@@ -31,4 +31,4 @@ User will be prompted for information about the team manager then have the choic
 This application is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
 ### Notes
-New to using [Jest](https://www.npmjs.com/package/jest).
+New to using [Jest](https://www.npmjs.com/package/jest). It provides an interesting perspective of looking at code to prevent bugs from happening before coding. It also helps understand the code better, being able to write tests. 
